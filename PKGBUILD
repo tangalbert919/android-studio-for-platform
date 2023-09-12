@@ -23,7 +23,6 @@ if [ "$CARCH" = "i686" ]; then
 fi
 
 package() {
-  echo $pkgdir
   bsdtar -xf data.tar.xz -C "$pkgdir/"
 
   # Install the application
@@ -34,7 +33,7 @@ package() {
 
   # Copy licenses
   install -Dm644 $pkgdir/opt/$pkgname/LICENSE.txt "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE.txt"
-  #install -Dm644 $srcdir/license.html "${pkgdir}/usr/share/licenses/${pkgname}/license.html"
+  install -Dm644 $srcdir/license.html "${pkgdir}/usr/share/licenses/${pkgname}/license.html"
 
   # Add the icon and desktop file
   install -Dm644 $pkgdir/opt/$pkgname/bin/studio.png $pkgdir/usr/share/pixmaps/$pkgname.png
