@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Android Studio for Platform
+Exec=android-studio-for-platform %f
+Icon=android-studio-for-platform
+Comment=The official Android IDE for platform
+Categories=Development;IDE;
+Terminal=false
+StartupNotify=true
+StartupWMClass=jetbrains-studio
+MimeType=application/x-extension-iml;
