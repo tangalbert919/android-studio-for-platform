@@ -1,5 +1,5 @@
 pkgname=android-studio-for-platform
-pkgver=2023.1.1.19
+pkgver=2024.2.2.13
 pkgrel=1
 pkgdesc="The official Android IDE for Platform"
 arch=('i686' 'x86_64')
@@ -11,10 +11,10 @@ optdepends=('gtk2: GTK+ look and feel'
             'libgl: emulator support'
             'ncurses5-compat-libs: native debugger support')
 options=('!strip')
-source=("https://dl.google.com/dl/android/asfp/asfp-$pkgver-linux.deb"
+source=("https://dl.google.com/dl/android/asfp/asfp-Ladybug%20Feature%20Drop-$pkgver-linux.deb"
         "$pkgname.desktop"
         "license.html")
-sha256sums=('e4fa09fa5df9cbae249d69a3d92ef0d121b7b5c6628baff9558c66e3ae0ca0a4'
+sha256sums=('c8c51358ea581dafc08b3ae0becfe66e87eb0eaadb2f96c9623ba494877253fd'
             '50e03b64971a2d0cc631e0276470bf66464f60b3b86b0a89fb8f532c752a42de'
             'f7b9a49e5f563321b5fce2c8c8bb71a4f07ce886c8772ed5dd4aeb63546a7a5b')
 
@@ -23,7 +23,9 @@ if [ "$CARCH" = "i686" ]; then
 fi
 
 package() {
-  bsdtar -xf data.tar.xz -C "$pkgdir/"
+  bsdtar -xf data.tar.gz -C "$pkgdir/"
+  mv $pkgdir/tmp $pkgdir/opt
+  mv "${pkgdir}/opt/${pkgname}-Stable.2.13" "${pkgdir}/opt/${pkgname}"
 
   # Install the application
   install -d $pkgdir/{opt/$pkgname,usr/bin}
