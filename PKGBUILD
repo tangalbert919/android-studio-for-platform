@@ -1,6 +1,6 @@
 pkgname=android-studio-for-platform
 pkgver=2024.2.2.13
-pkgrel=1
+pkgrel=2
 pkgdesc="The official Android IDE for Platform"
 arch=('i686' 'x86_64')
 url="https://developer.android.com/"
@@ -31,7 +31,7 @@ package() {
   install -d $pkgdir/{opt/$pkgname,usr/bin}
   #cd $pkgdir
   #cp -a opt/bin opt/lib opt/jbr opt/plugins opt/license opt/LICENSE.txt opt/build.txt opt/product-info.json $pkgdir/opt/$pkgname
-  ln -s /opt/$pkgname/bin/studio.sh $pkgdir/usr/bin/$pkgname
+  ln -s /opt/$pkgname/bin/studio $pkgdir/usr/bin/$pkgname
 
   # Copy licenses
   install -Dm644 $pkgdir/opt/$pkgname/LICENSE.txt "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE.txt"
